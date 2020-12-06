@@ -1,2 +1,2 @@
-# terraform-aws-strongswan
-Instalação do StrongsWan pelo terraform
+# Provisionamento de ambiente para o StrongSwan utilizando Terraform
+Instalação do StrongSwan na AWS
