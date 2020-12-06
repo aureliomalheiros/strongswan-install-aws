@@ -35,7 +35,7 @@ resource "aws_subnet" "subnet_privada" {
   }
 }
 
-#Rotas Publica
+#Rotas Publicas
 resource "aws_route_table" "rota_publica-rede_principal" {
   vpc_id = aws_vpc.rede_principal.id
 
@@ -49,7 +49,7 @@ resource "aws_route_table" "rota_publica-rede_principal" {
   }
 }
 
-#Associação de redes Publica
+#Associação de redes Publicas
 resource "aws_route_table_association" "publica" {
   subnet_id      = aws_subnet.subnet_publica.id
   route_table_id = aws_route_table.rota_publica-rede_principal.id
@@ -62,7 +62,7 @@ resource "aws_route_table" "rota_privada-rede_principal" {
     Name = "rota_privada-rede_principal"
   }
 }
-#Associação de redes Privada
+#Associação de redes Privadas
 resource "aws_route_table_association" "privada" {
   subnet_id      = aws_subnet.subnet_privada.id
   route_table_id = aws_route_table.rota_privada-rede_principal.id
