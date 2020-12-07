@@ -68,4 +68,3 @@ resource "aws_route_table_association" "privada" {
   route_table_id = aws_route_table.rota_privada-rede_principal.id
 }
 
-#Security Group

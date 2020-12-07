@@ -47,7 +47,7 @@ resource "aws_network_acl" "acl_publica" {
 #Security Group
 
 resource "aws_security_group" "strongswan_vpn" {
-  name        = "strongswan vpn"
+  name        = "strongswan_vpn"
   description = "strongswan vpn"
   vpc_id      = aws_vpc.rede_principal.id
 
