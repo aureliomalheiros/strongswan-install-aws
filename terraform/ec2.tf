@@ -5,6 +5,7 @@ resource "aws_instance" "VPN" {
         Name = "strongswan_vpn"
     }
     #Configurações de rede
+    source_dest_check = false
     subnet_id = aws_subnet.subnet_publica_1.id 
     vpc_security_group_ids = [ aws_security_group.strongswan_vpn.id, aws_security_group.ssh.id, aws_security_group.sistemas_linux.id ]
     key_name = "vpn"  
