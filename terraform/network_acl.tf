@@ -29,10 +29,28 @@ resource "aws_network_acl" "acl_publica" {
     from_port  = 22
     to_port    = 22
   }
-  #Portas efemeras
+  #Porta 80
   egress {
     protocol   = "tcp"
     rule_no    = 13
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 80
+    to_port    = 80
+  }
+  #Porta 443
+  egress {
+    protocol   = "tcp"
+    rule_no    = 14
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 443
+    to_port    = 443
+  }
+  #Portas efemeras
+  egress {
+    protocol   = "tcp"
+    rule_no    = 15
     action     = "allow"
     cidr_block = "0.0.0.0/0"
     from_port  = 1024
@@ -65,10 +83,28 @@ resource "aws_network_acl" "acl_publica" {
     from_port  = 22
     to_port    = 22
   }
-  #Portas Efemeras
+  #Porta 80
   ingress {
     protocol   = "tcp"
     rule_no    = 13
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 80
+    to_port    = 80
+  }
+  #Porta 443
+  ingress {
+    protocol   = "tcp"
+    rule_no    = 14
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 443
+    to_port    = 443
+  }
+  #Portas Efemeras
+  ingress {
+    protocol   = "tcp"
+    rule_no    = 15
     action     = "allow"
     cidr_block = "0.0.0.0/0"
     from_port  = 1024
