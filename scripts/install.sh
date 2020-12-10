@@ -15,17 +15,17 @@ config setup
 	strictcrlpolicy=yes
 	uniqueids = no
 conn %default
-    ikelifetime=28800s
+	ikelifetime=28800s
 	keylife=3600s
-    rekeymargin=3m
+	rekeymargin=3m
 	keyingtries=3
 	keyexchange=ikev1
-    authby=secret
-    auto=start
-    type=tunnel
-    leftid=#IP PUBLICO
-    leftsubnet=#IP DA REDE
-    leftauth=psk
+	authby=secret
+	auto=start
+	type=tunnel
+	leftid=#IP PUBLICO
+	leftsubnet=#IP DA REDE
+	leftauth=psk
 
 conn vpn
 	right=#DNS OU IP PUBLICO REMOTO
@@ -33,7 +33,7 @@ conn vpn
 	rightsubnet=#SUBNET REMOTO
 	rightauth=psk
 	ike=#CRIPTOGRAFIA E DH
-    esp=#CRIPTOGRAFIA E DH 
+	esp=#CRIPTOGRAFIA E DH 
 EOF
 
 sudo cat>>/etc/ipsec.secrets<<EOF
