@@ -14,7 +14,7 @@ resource "aws_instance" "VPN" {
         type     = "ssh"
         user = "ubuntu"
         agent = false
-        host_key = file("~/.ssh/terraform.pub")
+        private_key = file("~/.ssh/terraform")
         host     = self.public_ip
     }
 
