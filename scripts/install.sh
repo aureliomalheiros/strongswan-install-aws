@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt update
+sudo apt update && sudo apt upgrade -y
 
 sudo sed 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' -i /etc/sysctl.conf
 
@@ -36,7 +36,7 @@ conn vpn
     esp=#CRIPTOGRAFIA E DH 
 EOF
 
-sudo cat<</etc/ipsec.secrets<<EOF
+sudo cat>>/etc/ipsec.secrets<<EOF
 #######EMPRESA#######
 #IP PUBLICO : PSK "senha"
 EOF
