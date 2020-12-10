@@ -8,7 +8,19 @@ resource "aws_instance" "VPN" {
     source_dest_check = false
     subnet_id = aws_subnet.subnet_publica_1.id 
     vpc_security_group_ids = [ aws_security_group.strongswan_vpn.id, aws_security_group.ssh.id, aws_security_group.sistemas_linux.id ]
-    key_name = "vpn"  
+    key_name = "vpn"
+    
+    provisioner "file" {
+        source = "../scripts/install.sh"
+        destination = "/tmp/install.sh"
+    }
+    provisioner "remote-exec" {
+        inline = [
+            "chmod +x /tmp/install.sh",
+            "/tmp/install.sh args"
+        ]
+    }
+    
 }
 
 
