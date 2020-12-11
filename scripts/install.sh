@@ -6,11 +6,11 @@ sudo sed 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' -i /etc/sysctl.conf
 
 sudo apt install -y strongswan
 
-sudo bash -c "echo #Static Routes  >> /etc/network/interfaces"
-sudo bash -c  "echo up route del -net 0.0.0.0/0 gw `ip route | grep default |egrep '[0-9\.]{6,}[$1]' | awk  {'print $3'}` dev eth0"  >> /etc/network/interfaces
-sudo echo "up route del -net 0.0.0.0/0 gw `ip route | grep default |egrep '[0-9\.]{6,}[$1]' | awk  {'print $3'}` dev eth0"  >> /etc/network/interfaces
+sudo bash -c "echo \#Static Routes  >> /etc/network/interfaces"
+sudo bash -c "echo up route del -net 0.0.0.0/0 gw `ip route | grep default |egrep '[0-9\.]{6,}[$1]' | awk  {'print $3'}` dev eth0"  >> /etc/network/interfaces
+sudo bash -c "echo up route del -net 0.0.0.0/0 gw `ip route | grep default |egrep '[0-9\.]{6,}[$1]' | awk  {'print $3'}` dev eth0"  >> /etc/network/interfaces
 
-sudo -u root cat >>/etc/ipsec.conf<<EOF
+sudo bash -c "echo >>/etc/ipsec.conf<<EOF
 config setup
 	strictcrlpolicy=yes
 	uniqueids = no
@@ -34,11 +34,11 @@ conn vpn
 	rightauth=psk
 	ike=#CRIPTOGRAFIA E DH
 	esp=#CRIPTOGRAFIA E DH 
-EOF
+EOF"
 
 sudo -u root cat>>/etc/ipsec.secrets<<EOF
 #######EMPRESA#######
 #IP PUBLICO : PSK "senha"
 EOF
 
-sudo -u root reboot
+sudo reboot
