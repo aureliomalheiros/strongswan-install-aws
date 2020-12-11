@@ -1,16 +1,17 @@
 #!/bin/bash
 
-sudo apt update && sudo apt upgrade -y
+sudo -i apt update && sudo apt upgrade -y
 
-sudo sed 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' -i /etc/sysctl.conf
+sudo -i sed 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' -i /etc/sysctl.conf
 
-sudo apt install -y strongswan
+sudo -i apt install -y strongswan
 
-sudo echo "#Static Routes" >> /etc/network/interfaces
-sudo echo "up route del -net 0.0.0.0/0 gw `ip route | grep default |egrep '[0-9\.]{6,}[$1]' | awk  {'print $3'}` dev eth0" >> /etc/network/interfaces
-sudo echo "up route del -net 0.0.0.0/0 gw `ip route | grep default |egrep '[0-9\.]{6,}[$1]' | awk  {'print $3'}` dev eth0" >> /etc/network/interfaces
 
-sudo cat >>/etc/ipsec.conf<<EOF
+sudo -i echo "up route del -net 0.0.0.0/0 gw `ip route | grep default |egrep '[0-9\.]{6,}[$1]' | awk  {'print $3'}` dev eth0" >> /etc/network/interfaces
+
+sudo -i echo "up route del -net 0.0.0.0/0 gw `ip route | grep default |egrep '[0-9\.]{6,}[$1]' | awk  {'print $3'}` dev eth0" >> /etc/network/interfaces
+
+sudo -i cat >>/etc/ipsec.conf<<EOF
 config setup
 	strictcrlpolicy=yes
 	uniqueids = no
@@ -36,7 +37,9 @@ conn vpn
 	esp=#CRIPTOGRAFIA E DH 
 EOF
 
-sudo cat>>/etc/ipsec.secrets<<EOF
+sudo -i cat>>/etc/ipsec.secrets<<EOF
 #######EMPRESA#######
 #IP PUBLICO : PSK "senha"
 EOF
+
+sudo -i reboot
