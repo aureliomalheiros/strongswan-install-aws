@@ -84,7 +84,7 @@ ssh -i "vpn.pem" ubuntu@IP_PUBLICO_DA_INSTANCIA
 ### 🛠 Tecnologias
 
 ![ShellScript](https://img.shields.io/badge/-ShellScript-000000?style=for-the-badge&logo=gnu-bash&logoColor=white)
-![AWS](https://img.shields.io/badge/-Amazon AWS-000000?style=for-the-badge&logo=232F3E-bash&logoColor=white)
+![AWS](https://img.shields.io/badge/-AWS-000000?style=for-the-badge&logo=amazonaws&logoColor=white)
 ![StrongSwan](https://img.shields.io/badge/-StrongSwan-000000?style=for-the-badge&logo=strongswan-bash&logoColor=white)
 
 
