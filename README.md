@@ -78,8 +78,8 @@ ssh -i "vpn.pem" ubuntu@IP_PUBLICO_DA_INSTANCIA
 [![Build status](https://img.shields.io/github/workflow/status/simple-icons/simple-icons/Verify/develop?logo=github)](https://github.com/simple-icons/simple-icons/actions?query=workflow%3AVerify+branch%3Adevelop)
 
 - [x] GNU/Linux
-- [] Windows
-- [] Mac
+- [ ] Windows
+- [ ] Mac
 
 ### 🛠 Tecnologias
 
